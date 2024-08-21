@@ -1,66 +1,67 @@
 # TrackerPy
 
-O **TrackerPy** é uma poderosa ferramenta de logging para scripts Python, projetada para facilitar o monitoramento e o rastreamento de processos em execução.
+**TrackerPy** is a powerful logging tool for Python scripts, designed to facilitate the monitoring and tracking of running processes.
 
-### Dependências
+### Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Instalação
+### Instalation
+To install TrackerPy, follow the steps below:
 
-Para instalar o TrackerPy, siga os passos abaixo:
-
-1. Navegue até o diretório principal onde você baixou os arquivos deste repositório. Seu caminho deve ser semelhante a:
-    ```bash
-    C:\Users\seu_usuario\trackerpy
-    ```
-
-2. Com o terminal aberto nesse diretório, execute o seguinte comando para instalar o TrackerPy: 
-    ```bash
-    pip install trackerpy
-    ```
-Após a instalação, você estará pronto para integrar o TrackerPy aos seus scripts Python, aproveitando suas funcionalidades para melhorar o controle e a rastreabilidade das suas operações.
-
-### Como usar
-**Passo 1:** Conexão com o banco de dados.
-
-Primeiro, você precisa configurar o arquivo config.py, substitua o valor das variáveis com base nas suas credenciais e informações do banco de dados.
+1. Navigate to the main directory where you downloaded the files from this repository. Your path should look something like this:
 ```bash
-C:\Users\seu_usuario\trackerpy\config.py
+C:\Users\your_user\trackerpy
 ```
 
-**Passo 2:** Configuração da instância.
+2. With the terminal open in this directory, run the following command to install TrackerPy:
+```bash
+pip install trackerpy
+```
 
-Após configurar config.py, você precisa inicializar uma instância da classe TrackerPy em seu script. A inicialização requer que você forneça alguns parâmetros, como o ID do script, o nome do script, a fonte do log e a etapa do processo.
+After the installation, you will be ready to integrate TrackerPy into your Python scripts, taking advantage of its features to improve control and traceability of your operations.
+
+### How to Use
+**Step 1:** Database Connection.
+
+First, you need to configure the config.py file. Replace the variable values based on your credentials and database information.
+``` bash
+C:\Users\your_user\trackerpy\config.py
+```
+
+**Stpe 2:** Instance Configuration.
+
+After configuring config.py, you need to initialize an instance of the TrackerPy class in your script. The initialization requires you to provide some parameters, such as the script ID, script name, log source, and process step.
 
 ```python
 from trackerpy import TrackerPy
 
-# Inicialize o TrackerPy
-tracker = TrackerPy(script_id=1, script_name="Nome do Script", source_name="Fonte de Dados", process_step="PROCESSING")
-
+# Initialize TrackerPy
+tracker = TrackerPy(script_id=1, script_name="Script Name", source_name="Data Source", process_step="PROCESSING")
 ```
 
-**Passo 3:** Registro de Logs.
-Com a instância do TrackerPy inicializada, você pode registrar diferentes tipos de logs ao longo do seu script. O TrackerPy fornece três métodos principais para registrar logs:
+**Step 3:** Logging.
 
-    1. log_info(): Para registrar informações gerais.
-    2. log_success(): Para registrar o sucesso de um processo.
-    3. log_error(): Para registrar erros que ocorreram durante a execução do script.
+With the `TrackerPy` instance initialized, you can log different types of messages throughout your script. `TrackerPy` provides three main methods for logging:
 
-Aqui está um exemplo de como usar cada um desses métodos:
+    1. log_info(): To log general information.
+    2. log_success(): To log the successful completion of a process.
+    3. log_error(): To log errors that occurred during script execution.
+
+Here is an example of how to use each of these methods:
+
 ```python
-# Registrar uma informação
-tracker.log_info(message="O processo foi iniciado.")
+# Log an information message
+tracker.log_info(message="The process has started.")
 
-# Registrar um sucesso
-tracker.log_success(message="O processo foi concluído com sucesso.")
+# Log a success message
+tracker.log_success(message="The process was completed successfully.")
 
-# Registrar um erro
+# Log an error message
 try:
-    # Código que pode gerar um erro
+    # Code that may generate an error
     result = 10 / 0
 except Exception as e:
-    tracker.log_error(message="Ocorreu um erro durante a execução do processo.", output=str(e))
+    tracker.log_error(message="An error occurred during the execution of the process.", output=str(e))
 ```
