@@ -1,0 +1,2 @@
+pyodbc==4.0.39
+setuptools==68.0.0
